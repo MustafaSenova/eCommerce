@@ -3,22 +3,19 @@ import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 
 const Profile = () => {
-  const { user, updateUser } = useContext(UserContext);
+  const { user, updateUser, logout } = useContext(UserContext);
   const [name, setName] = useState(user ? user.name : '');
   const [email, setEmail] = useState(user ? user.email : '');
   const navigate = useNavigate();
 
   const handleUpdate = () => {
-    if (user) {
-      updateUser({ name, email });
-      alert('Profil bilgileri güncellendi.');
-    }
+    updateUser({ name, email });
+    alert('Profil bilgileri güncellendi.'); 
   };
 
   const handleLogout = () => {
-    // Kullanıcının oturumunu kapat ve ana sayfaya yönlendir
-    localStorage.removeItem('user');
-    navigate('/');
+    logout();
+    navigate('/'); // Çıkış yaptıktan sonra ana sayfaya yönlendir
   };
 
   if (!user) {
@@ -38,13 +35,23 @@ const Profile = () => {
     <div className="profile-page">
       <div className="profile-card">
         <h2>Profil</h2>
-        <label>
+        <label htmlFor="name">
           İsim:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </label>
-        <label>
+        <label htmlFor="email">
           Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </label>
         <button onClick={handleUpdate}>Güncelle</button>
         <button onClick={handleLogout} className="logout-button">
