@@ -3,12 +3,13 @@ import ProductCard from '../components/ProductCard';
 import products from '../data/products';
 
 
-const Home = ({ showNotification }) => { // Prop olarak al
+const Home = () => { 
+  
   return (
     <div>
       <div className="product-grid">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} showNotification={showNotification} /> // Prop olarak ilet
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>

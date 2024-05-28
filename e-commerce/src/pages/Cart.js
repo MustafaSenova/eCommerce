@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import CartItem from "../components/CartItem";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../context/UserContext'
+import membershipTypes from '../data/MembershipTypes';
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useContext(CartContext);
+  const { user } = useContext(UserContext); 
 
   const handleRemoveFromCart = (product) => {
     removeFromCart(product);
@@ -16,6 +19,17 @@ const Cart = () => {
     cart.forEach((item) => {
       totalPrice += item.price * (item.quantity || 1);
     });
+
+    // Kullanıcının üyelik tipine göre indirim uygula
+    if (user && user.membershipId) {
+      const membership = membershipTypes.find(
+        (m) => m.id === user.membershipId
+      );
+      if (membership) {
+        totalPrice -= totalPrice * membership.discount;
+      }
+    }
+
     return totalPrice;
   };
 

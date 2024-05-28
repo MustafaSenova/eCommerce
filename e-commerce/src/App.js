@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import ProductDetails from './pages/ProductDetails';
+import Memberships from './pages/Memberships';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/memberships" element={<Memberships />} />
           </Routes>
         </UserProvider>
       </CartProvider>

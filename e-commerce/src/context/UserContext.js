@@ -3,7 +3,8 @@ import React, { createContext, useState } from 'react';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+  const initialUser = JSON.parse(localStorage.getItem('user')) || { membershipId: null }; // Başlangıçta üyelik yok
+  const [user, setUser] = useState(initialUser);
 
   const login = (userData) => {
     setUser(userData);
@@ -15,11 +16,9 @@ export const UserProvider = ({ children }) => {
   };
 
   const updateUser = (updatedData) => {
-    if (user) {
-      const updatedUser = { ...user, ...updatedData };
-      setUser(updatedUser);
-      localStorage.setItem('user', JSON.stringify(updatedUser));
-    }
+    const updatedUser = { ...user, ...updatedData };
+    setUser(updatedUser);
+    localStorage.setItem('user', JSON.stringify(updatedUser));
   };
 
   return (

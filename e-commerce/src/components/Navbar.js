@@ -16,6 +16,9 @@ const Navbar = () => {
         <Link to="/cart" className="cart-link">
           <i className="fa fa-shopping-cart"></i> Sepet
         </Link>
+        <Link to="/memberships" className="membership-link">
+          Üyelikler
+        </Link>
         <Link to="/profile" className="profile-link">
           <i className="fa fa-user"></i> Profil
         </Link>

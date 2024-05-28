@@ -455,3 +455,41 @@ body {
 .product-info p { /* Ürün açıklaması */
   margin-bottom: 20px;
 }
+
+.membership-page {
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.membership-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.membership-option {
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.membership-option h3 {
+  margin-bottom: 10px;
+}
+
+.membership-option button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.membership-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem; /* Diğer linklerden boşluk bırakın */
+}
