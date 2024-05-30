@@ -6,22 +6,22 @@ const CartItem = ({ product }) => {
 
   const handleIncreaseQuantity = (product) => {
     const newQuantity = (product.quantity || 1) + 1;
-    updateCartItemQuantity(product.id, newQuantity);
+    updateCartItemQuantity(product.Id, newQuantity);
   };
 
   const handleDecreaseQuantity = (product) => {
     if (product.quantity && product.quantity > 1) {
       const newQuantity = product.quantity - 1;
-      updateCartItemQuantity(product.id, newQuantity);
+      updateCartItemQuantity(product.Id, newQuantity);
     }
   };
 
   return (
     <div className="cart-item">
-      <img src={product.image} alt={product.name} />
+      <img src={product.Image} alt={product.Name} />
       <div>
-        <h3>{product.name}</h3>
-        <p>Fiyat: {product.price} TL</p>
+        <h3>{product.Name}</h3>
+        <p>Fiyat: {product.Price} TL</p>
         <div className="quantity-controls">
           <button onClick={() => handleDecreaseQuantity(product)}>-</button>
           <span>{product.quantity || 1}</span> {/* Miktarı göster */}

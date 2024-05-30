@@ -17,7 +17,7 @@ const Cart = () => {
   const calculateTotalPrice = () => {
     let totalPrice = 0;
     cart.forEach((item) => {
-      totalPrice += item.price * (item.quantity || 1);
+      totalPrice += item.Price * (item.quantity || 1);
     });
 
     // Kullanıcının üyelik tipine göre indirim uygula
@@ -48,7 +48,7 @@ const Cart = () => {
           <div className="cart-items">
             {cart.map((product) => (
               <CartItem 
-                key={product.id} 
+                key={product.Id} 
                 product={product} 
                 onRemove={handleRemoveFromCart} // onRemove props'u eklendi
               />

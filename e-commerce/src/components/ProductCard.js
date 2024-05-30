@@ -10,7 +10,6 @@ const ProductCard = ({ product }) => {
     addToCart(product);
     setShowSuccessMessage(true); 
 
-    // 2 saniye sonra mesajı gizle
     setTimeout(() => {
       setShowSuccessMessage(false);
     }, 2000); 
@@ -18,11 +17,11 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="product-card">
-      <Link to={`/product/${product.id}`}>
-        <img src={product.image} alt={product.name} />
+      <Link to={`/product/${product.Id}`}>
+        <img src={product.Image} alt={product.Name} />
       </Link>
-      <h3>{product.name}</h3>
-      <p>Fiyat: {product.price} TL</p>
+      <h3>{product.Name}</h3>
+      <p>Fiyat: {product.Price} TL</p>
       <button className="add-to-cart-btn" onClick={handleAddToCart}>
         Sepete Ekle
       </button>
